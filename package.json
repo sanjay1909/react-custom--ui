@@ -1,0 +1,49 @@
+{
+  "name": "react-custom-ui",
+  "version": "1.0.0",
+  "description": "react cutom ui ",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "webpack --progress --config webpack.config.js --env prod",
+    "deploy": "npm run build && git commit -am 'Deploy Commit' && git push && git subtree push --prefix demo origin gh-pages",
+    "lint": "eslint ./src --ext .js --cache --fix --ext .jsx --cache --fix",
+    "postbuild": "node scripts/postbuild.js",
+    "postversion": "git push origin HEAD --follow-tags",
+    "prebuild": "rimraf lib && rimraf demo",
+    "publish": "git subtree push --prefix demo origin gh-pages",
+    "release:breakingchange": "npm version major -m 'Bumped major version number'",
+    "release:bugfix": "npm version patch -m 'Bumped patch version number'",
+    "release:feature": "npm version minor -m 'Bumped minor version number'",
+    "release:master": "git checkout master && git merge --squash develop && git commit -am 'Release Commit'",
+    "start": "webpack-dev-server --progress --config webpack.config.js --open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.6.1",
+    "eslint-loader": "^1.9.0",
+    "fs-extra": "^4.0.2",
+    "prop-types": "^15.6.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "files": [
+    "lib"
+  ]
+}

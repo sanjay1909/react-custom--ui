@@ -1,0 +1,8 @@
+.pane {
+
+}
+
+.pane-resizer{
+  background: padding-box black;
+  opacity: .1;
+}
