@@ -1,5 +1,12 @@
-.pane {
-  border:1px solid lightgrey;
-  padding: 4px;
+
+.resizable-pane {
+
+}
+
+.demo-pane {
+  border: 1px solid grey;
+  padding: 8px;
+  flex: 1;
   margin: 4px;
+  background: lightyellow;
 }
