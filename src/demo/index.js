@@ -11,30 +11,45 @@ const Tree = CustomUI.Tree;
 const data = [
 	{
 		displayName: "Resizable Pane",
-		id:"resizablePane",
+		componentName:"resizablePane",
 		value:[
 			{
+				componentName:"resizablePane",
 				displayName:"Horizontal",
 				value:"horizontal"
 			},
 			{
+				componentName:"resizablePane",
 				displayName:"Vertical",
 				value:"vertical"
 			},
 			{
+				componentName:"resizablePane",
 				displayName:"Mix",
 				value:"mix"
 			},
 			{
+				componentName:"resizablePane",
 				displayName:"Fixed",
 				value:"fixed"
 			}
 		]
 	},
 	{
-		id:"tree",
+		componentName:"tree",
 		displayName:"Tree",
-		value:"tree"
+		value:[
+			{
+				componentName:"tree",
+				displayName:"Crumb",
+				value:"crumb"
+			},
+			{
+				componentName:"tree",
+				displayName:"Accordion",
+				value:"accordion"
+			}
+		]
 	}
 
 ];
@@ -44,32 +59,32 @@ class App extends React.Component{
 		super(props);
 		this.state = {
 			componentName: "",
-			propName: ""
+			propValue: ""
 		};
 		this.updateDemoNameState = this.updateDemoNameState.bind(this);
 
 	}
 
 	updateDemoNameState(node){
-		let propName = "";
+		let propValue = "";
 
-		if(node && typeof node.value === 'string'){
-			propName =  node.value;
+		if(node && typeof node.value === "string"){
+			propValue =  node.value;
 		}
 		this.setState({
-			componentName:node ? node.id : "",
-			propName:propName
+			componentName:node ? node.componentName : "",
+			propValue:propValue
 		});
 	}
 
 	render(){
-		const {componentName, propName} = this.state;
+		const {componentName, propValue} = this.state;
 		let demoUI = "Click on the Left side to see a Demo";
 
 		if(componentName === "resizablePane"){
-			demoUI = <ResizablePaneDemo demoName={propName}/>;
+			demoUI = <ResizablePaneDemo demoName={propValue}/>;
 		}else if(componentName === "tree"){
-			demoUI = <TreeDemo/>;
+			demoUI = <TreeDemo demoName={propValue}/>;
 		}
 		return(
 			<ResizablePane direction="horizontal" paneSize={[.3]} className="resizablePane">

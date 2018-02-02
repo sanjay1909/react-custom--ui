@@ -2,15 +2,30 @@
 
 }
 
+.tree-node-crumb{
+
+}
+
 .tree-node-children{
     list-style: none;
     padding-left: 19px;
     display: block;
 }
 
+.tree-crumb-children{
+    position: relative;
+}
+.tree-node-crumb-children{
+    position: absolute;
+}
+
 .tree{
     list-style: none;
     padding-left: 19px;
     display: block;
+}
+
+.tree-crumb{
+    display: flex;
 }
 
